@@ -37,3 +37,7 @@ export class LogAtividade {
     matricula: string = '';
     nome: string = '';
 };
+
+export class Valida {
+    ret: string = '';
+};

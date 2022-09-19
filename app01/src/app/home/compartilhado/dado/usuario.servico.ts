@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario, Perfil, LogAtividade } from './dado';
+import { Usuario, Perfil, LogAtividade, Valida } from './dado';
 import { util } from 'src/app/util/util';
 
 
@@ -18,6 +18,10 @@ export class UsuarioServico {
     public post(usuario: Usuario): Observable<any> {
         return this.http.post(this.apiUrl, usuario);
     }    
+
+    public valida(id: number, sh: string): Observable<Valida> {
+        return this.http.get<Valida>(`${this.apiUrl + '/valida/' + id + '/' + sh}`);
+    }
 
     public getAll(): Observable<Usuario[]> {
       return this.http.get<Usuario[]>(this.apiUrl);

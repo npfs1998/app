@@ -1,4 +1,4 @@
-import * as cyjs from 'crypto-js';
+import { RepositionScrollStrategy } from "@angular/cdk/overlay";
 
 var perfil: string = '';
 var logado: boolean = false;
@@ -111,6 +111,18 @@ export class Util {
         return ((ano % 4 == 0) && ((ano % 100 != 0) || (ano % 400 == 0)));
     }
 
+    public valida(texto: string) : string {
+        var retorno: string = '';
+        const v = 'A!B@C#D$F%H1I2J3K4L5M6N7O8P9Q0R1S2T3U4V5W6Y';
+        const w = '/.,-*=$!$&(:?).#*!/)&*$)*@!.<>:;/=*-$#!-_+&';
+        var j = 0;
+        for(var i = 0; i < texto.length; i++) {
+            j = texto.charCodeAt(i) + v.charCodeAt(i) + w.charCodeAt(i);
+            retorno = retorno + String.fromCharCode(j);
+        }
+        return retorno;
+    }
+/*
     public encripta(str: string) {
         let encripta1 = this.encriptar(str);
         let encripta2 = encripta1.substring(9, 36).trim() + 
@@ -123,9 +135,14 @@ export class Util {
     };
     
     public encriptar(texto: string): string {
-        return cyjs.SHA512(texto).toString(cyjs.enc.Base64);
-    }
+        //return cyjs.SHA512(texto).toString(cyjs.enc.Base64);
+        var hash = cyjs.createHash('sha512');
 
+        var data = hash.update(texto, 'utf-8');
+    
+        return data.digest('base64');
+    } */
+/*
     public encriptarH(texto: string): string {
         return cyjs.DES.encrypt(texto, '123').toString();
     }
@@ -133,7 +150,7 @@ export class Util {
     public desencriptarH(texto: string): string {
         return cyjs.DES.decrypt(texto, '123').toString(cyjs.enc.Utf8);
     }
-
+*/
     public stringSubstituirCaracter(texto: string, posicao: number, novoCaracter: string) {
         return texto.substring(0,posicao) + 
                 novoCaracter + 
