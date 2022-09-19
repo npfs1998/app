@@ -1,0 +1,47 @@
+<mat-toolbar class="bg-silver cl-black">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="example-spacer"></span>
+    <span>Logs do sistema</span>
+    <span class="example-spacer"></span>
+
+    <a (click)="exibir()" class="btn bold cl-black bg-white">Exibir log</a>
+
+</mat-toolbar> 
+
+<br/>
+<br/>
+<div class="form-group row">
+    <label class="col-sm-2 col-from-label">Filtrar</label>
+    <div class="col-sm-5">
+        <input class="form-control">
+    </div>
+<div>
+<br/>
+<br/>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <th>Reg</th>
+        <th>Executante</th>
+        <th>Data</th>
+        <th hidden>Tabela</th>
+        <th>Ação</th>
+        <th>Id</th>
+        <th>Atividade</th>
+    </thead>
+    <tbody>
+        <tr *ngFor='let log of logAtividade'>
+            <td>{{ log.id }}</td>
+            <td> <a matTooltip={{log.nome}} class="cl-black mouse-over" matTooltipPosition ="above">{{log.matricula}}</a></td>
+            <td>{{ log.data | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+            <td hidden>{{ log.tabela }}</td>
+            <td>{{ log.acao }}</td>
+            <td>{{ log.idtabela }}</td>
+            <td>{{ log.atividade }}</td>
+        </tr>
+    </tbody>
+</table>

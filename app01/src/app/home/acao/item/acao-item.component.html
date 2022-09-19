@@ -1,0 +1,67 @@
+<div class="container mt-4">
+    <span class="cl-black" id="dadosUsuarioIA"></span>
+</div>
+
+<mat-toolbar class="bg-goldenrod cl-black">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <button id="btnsalvar" (click)="salvar()" class="btn bold bg-lightblue" [disabled]="!registroAlterado">Salvar</button>
+    <button id="btncancelar" (click)="cancelar()" class="btn bold bg-silver" [disabled]="!registroAlterado">Cancelar</button>
+
+    <button id="btnfinalizar" (click)="modificacacoes('1')" class="btn bold bg-white" [disabled]="!habilitarBotoes">Finalizar</button>
+    <button id="btnbaixar" (click)="modificacacoes('2')" class="btn bold bg-white" [disabled]="!habilitarBotoes">Baixar</button>
+    <button id="btnativar" (click)="modificacacoes('0')" class="btn bold bg-white" [disabled]="!habilitarAtivar">Reativar</button>
+
+    <span class="example-spacer"></span>
+    <span>Ação</span>
+    <span class="example-spacer"></span>
+
+    <button [routerLink]="['/home/acao']" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<br>
+<table class="table table-striped bg-lightgrey">
+    <thead>
+        <th>Registro</th>
+        <th>Data</th>
+        <th>Usuario</th>
+        <th>Situacao</th>
+    </thead>
+    <tbody class="bold">
+            <td>{{ acao.id }}</td>
+            <td>{{ acao.data | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+            <td>{{ acao.matricula }}  -  {{ acao.nome }}</td>
+            <td>{{ acao.situacao | acaoSituacao }}</td>
+    </tbody>
+</table>
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+      <tr>
+      <div class="container">
+        <!--p class="bold">Registro: {{ acao.id }}</p>
+        <p class="bold">Data: {{ acao.data | date: 'dd/MM/yyyy HH:mm:ss' }}  Usuario: {{acao.matricula + ' - ' + acao.nome}}</p-->
+        <p class="bold">Descrição:</p> 
+        <textarea id="inputdescricao" [disabled]="!habilitarBotoes" class="uppercase noresize" cols="100%" rows="4" maxlength="200" [value]= "acao!.descricao" (change)="alteracao()"></textarea>
+
+        <br><br>
+        <p class="bold">Observação:</p>
+        <textarea id="inputobservacao" [disabled]="!habilitarBotoes" class="noresize" cols="100%" rows="8" maxlength="500" [value]= "acao!.observacao" (change)="alteracao()"></textarea>
+
+        <br><br>
+        <!--p class="bold">Situação:</p>
+        <p class="card-text bold">{{ acao.situacao | acaoSituacao }}</p-->
+  
+      </div>
+      </tr>
+      <br><br>
+    </div>
+  </div>
+
+  <app-log></app-log>

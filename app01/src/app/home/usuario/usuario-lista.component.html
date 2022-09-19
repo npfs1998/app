@@ -1,0 +1,70 @@
+<div class="container mt-4">
+    <span class="cl-black" id="dadosUsuarioLU"></span>
+</div>
+
+<mat-toolbar class="bg-goldenrod cl-black">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <a [routerLink]="['/home/usuario/criar']" class="btn bold cl-black bg-lightblue">Criar</a>
+
+    <span class="example-spacer"></span>
+    <span>Usuários</span>
+    <span class="example-spacer"></span>
+    
+    <!--button class="btn btn-primary mr-2">+</button-->
+    <!--a [routerLink]="['/home']" class="btn btn-primary mr-2">Retornar</a-->
+
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button [routerLink]="['/home']" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+
+</mat-toolbar> 
+
+<br/>
+<br/>
+
+<div class="form-group row bold">
+    <div>
+        <label>Filtrar</label>
+
+        <input size="35" [(ngModel)]="filter" class="text margem-15">[
+
+        <input (click)="filtrar()" class="bold margem-5 mouse-over" type="radio" value="Matricula" name="filtro">Matrícula
+        <input (click)="filtrar()" class="bold margem-10 mouse-over" type="radio" value="Nome" name="filtro" checked>Nome ]
+        <label class="margem-esquerda-15">[</label>
+        <input (click)="situacaoFiltro('0')" class="bold margem-5 mouse-over" type="radio" value="0" name="filtro1">Ativo
+        <input (click)="situacaoFiltro('1')" class="bold margem-10 mouse-over" type="radio" value="1" name="filtro1">Bloqueado
+        <input (click)="situacaoFiltro('2')" class="bold margem-10 mouse-over" type="radio" value="2" name="filtro1">Baixado
+        <input (click)="situacaoFiltro('')" class="bold margem-10 mouse-over" type="radio" value="" name="filtro1" checked>Qualquer  ]
+    </div>
+</div>
+
+<br/>
+<br/>
+
+<table class="table table-striped">
+    <thead>
+        <th>Registro</th>
+        <th>Matrícula</th>
+        <th>Nome</th>
+        <th>Situacao</th>
+        <th class="item">Perfil</th>
+    </thead>
+    <tbody>
+        <tr *ngFor='let usuario of usuarios'>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.matricula }}</td>
+            <td>{{ usuario.nome }}</td>
+            <td>{{ usuario.situacao | usuarioSituacao }}</td>
+            <td class="item">{{ usuario.perfil | usuarioPerfil }}</td>
+            <td>
+                    <a routerLink="/home/usuario/item" [queryParams]="{nusuario:usuario.id}" class="btn bg-lightblue">Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

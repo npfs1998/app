@@ -1,0 +1,72 @@
+<div class="container mt-4">
+    <span class="cl-black" id="dadosUsuarioLA"></span>
+</div>
+
+<mat-toolbar class="bg-gold cl-black">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <a [routerLink]="['/home/acao/criar']" class="btn bold cl-black bg-lightblue mouse-over">Criar</a>
+
+    <span class="example-spacer"></span>
+    <span>Ações executadas</span>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button [routerLink]="['/home']" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+
+</mat-toolbar> 
+
+<div class="form-group row bold">
+    <div>
+        <label>Filtrar</label>
+
+        <input size="35" [(ngModel)]="filter" class="text margem-15">[
+
+        <input (click)="filtrar()" class="bold margem-5 mouse-over" type="radio" value="Matricula" name="filtroA">Mat
+        <input (click)="filtrar()" class="bold margem-10 mouse-over" type="radio" value="Nome" name="filtroA" checked>Nome 
+        <input (click)="filtrar()" class="bold margem-10 mouse-over" type="radio" value="descricao" name="filtroA">Desc 
+        <input (click)="filtrar()" class="bold margem-10 mouse-over" type="radio" value="observacao" name="filtroA">Obs ] 
+        
+        <label class="margem-esquerda-15">[</label>
+        <input (click)="situacaoFiltro('0')" class="bold margem-5 mouse-over" type="radio" value="0" name="filtroA1">Ativa
+        <input (click)="situacaoFiltro('1')" class="bold margem-10 mouse-over" type="radio" value="1" name="filtroA1">Finalizada
+        <input (click)="situacaoFiltro('2')" class="bold margem-10 mouse-over" type="radio" value="2" name="filtroA1">Baixada
+        <input (click)="situacaoFiltro('')" class="bold margem-10 mouse-over" type="radio" value="" name="filtroA1" checked>Qualquer  ]
+
+        <input (change)="filtrar()" class="mouse-over" type="date" id="datainicio" name="calendarioA">
+        <label class="margem-5"> a </label>
+        <input (change)="filtrar()" class="mouse-over" type="date" id="datafim" name="calendarioA">
+        <input (change)="filtrar()" class="bold margem-10 mouse-over" size="25" type="checkbox" value="data" id="checkdataA" name="filtrodataA">
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <th>Registro</th>
+        <th>Data</th>
+        <th>Usuario</th>
+        <th>Atividade</th>
+        <th>Observação</th>
+        <th>Situacao</th>
+    </thead>
+    <tbody>
+        <tr *ngFor='let acao of acoes'>
+            <td>{{ acao.id }}</td>
+            <td>{{ acao.data | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+            <td> <a matTooltip={{acao.nome}} class="cl-black mouse-over" matTooltipPosition ="above">{{acao.matricula}}</a></td>
+            <!--td>{{ acao.usuario }}</td-->
+            <td>{{ acao.descricao }}</td>
+            <td>{{ acao.observacao }}</td>
+            <td>{{ acao.situacao | acaoSituacao }}</td>
+            <td>
+                    <a routerLink="/home/acao/item" [queryParams]="{nacao:acao.id}" class="btn bg-lightblue">Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

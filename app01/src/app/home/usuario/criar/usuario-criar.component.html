@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <span class="cl-black" id="dadosUsuarioUC"></span>
+</div>
+
+<mat-toolbar class="bg-goldenrod cl-black">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <button (click)="salvar()" type="button" class="btn bold bg-lightblue">Salvar</button>
+    <button [routerLink]="['/home/usuario']" type="button" class="btn bold bg-silver">Cancelar</button>
+
+    <span class="example-spacer"></span>
+    <span>Criar usuário</span>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button [routerLink]="['/home/usuario']" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+
+</mat-toolbar> 
+
+
+    <div class="container">
+      <br>
+      <p class="bold">Matrícula:</p> 
+      <input class="uppercase" id="matriculaC" size="20" maxlength="15" placeholder="Entre a matrícula">
+      <br><br>
+      <p class="bold">Nome:</p>
+      <input class="uppercase" id="nomeC" size="60" maxlength="50" placeholder="Entre o nome">
+      <br><br>
+      <p class="bold">Perfil:</p>
+      <p class="card-text bold"></p>
+
+      <select id="selPerfilC" title="selPerfilC" name="selPerfilC" type="combobox" size="6" class="item-md mouse-over" multiple>
+        <option name="selPerfilUsuarioC" *ngFor='let perfil of perfis' [value]="perfil.id" >{{perfil.descricao}}</option>
+      </select>
+
+    </div>
+
+    <br><br>
+    <!--div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <button (click)="salvar()" type="button" class="btn btn-sm btn-primary">Salvar</button>
+        <button [routerLink]="['/home/usuario']" type="button" class="btn btn-sm btn-outline-secondary">Cancelar</button>
+      </div>
+    </div-->

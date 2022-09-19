@@ -1,0 +1,83 @@
+<div class="container mt-4">
+    <span class="cl-black" id="dadosUsuario"></span>
+</div>
+
+<!--div class="container mt-4"-->
+  <!--router-outlet></router-outlet-->
+  <mat-toolbar class="bg-greenyellow">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!--a class="btn bg-greenyellow" id="habilitarLogin" (click)="habilitarLogin()">Login</a-->
+    <a class="btn bold bg-gray" id="habilitarLogoff" (click)="logoff()">Logoff</a>
+
+    <a [routerLink]="['usuario']" id="usuario" class="btn bold bg-goldenrod">Usuários</a>
+    <a [routerLink]="['acao']" id="acao" class="btn bold bg-gold">Ações</a>
+
+    <span class="example-spacer"></span>
+    <span>Atividades</span>
+    <span class="example-spacer"></span>
+    
+  </mat-toolbar> 
+  <!--app-menu></app-menu-->
+<!--/div-->
+
+<div class="body" id="loginusuario">
+<!-- Login-->
+<br>
+<br>
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card p-3">
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+          <label (dblclick)="loginAdm()" for="matricula">Matrícula</label>
+          <input type="text" id="matricula" class="form-control">
+          <!-- [disabled]="!form.enabled"  ngModel required #matriculaF="ngModel" name="matricula"   input [(ngModel)]="matriculaF" name="matricula" type="text" id="matricula" class="form-control"-->
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" class="form-control">
+         <p id="mensagemlogin" *ngIf='mensagem != ""' class="alert alert-primary mt-2">{{ mensagem }}</p>
+      </div>
+      <div class="form-group item">
+        <br>
+          <button class="btn btn-success" type="submit">Entrar</button> 
+          <!--p id="mensagemlogin" *ngIf='mensagem != ""' class="alert alert-primary mt-2">{{ mensagem }}</p-->
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<input type="text" id="key">
+
+<!-- Login 2 -->
+
+<!--div class="d-flex justify-content-center align-items-center">
+  <div class="card p-3">
+  
+          <form [formGroup]="form" (ngSubmit)="login()"> 
+              <div class="form-group">
+  
+                  <label for="matricula">Matrícula</label>
+  
+                  <input type="matricula" id="matricula" class="form-control"  formControlName="matricula" requiredminlength="5">
+  
+              </div>
+  
+             <div class="form-group">
+  
+                 <label for="senha">Senha</label>
+  
+                 <input type="password" id="senha" class="form-control" formControlName="senha" requiredminlength="8">
+  
+             </div>
+  
+             <button class="btn btn-success" type="submit"  [disabled]="!form.valid">Entrar</button> 
+             <p *ngIf='mensagem != ""' class="alert alert-primary mt-2">{{ mensagem }}</p>
+  
+         </form>
+  
+      </div>
+  
+  </div-->

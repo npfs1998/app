@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <span class="cl-black" id="dadosUsuarioAC"></span>
+</div>
+
+<mat-toolbar class="bg-goldenrod cl-black">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <button (click)="salvar()" type="button" class="btn bold bg-lightblue">Salvar</button>
+    <button [routerLink]="['/home/acao']" type="button" class="btn bold bg-silver">Cancelar</button>
+
+    <span class="example-spacer"></span>
+    <span>Criar ação</span>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button [routerLink]="['/home/acao']" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+
+</mat-toolbar> 
+
+    <div class="container">
+      <br>
+      <p class="bold">Descrição:</p> 
+      <textarea id="inputdescricaoC" class="uppercase noresize" cols="100%" rows="4" maxlength="200" placeholder="Entre a descrição"></textarea>
+      <br><br>
+      <p class="bold">Observação:</p>
+      <textarea id="inputobservacaoC" class="noresize" cols="100%" rows="8" maxlength="500" placeholder="Entre a observação"></textarea>
+      <br><br>
+    </div>
+
+    <br><br>
+    <!--div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <button (click)="salvar()" type="button" class="btn btn-sm btn-primary">Salvar</button>
+        <button [routerLink]="['/home/acao']" type="button" class="btn btn-sm btn-outline-secondary">Cancelar</button>
+      </div>
+    </div-->
