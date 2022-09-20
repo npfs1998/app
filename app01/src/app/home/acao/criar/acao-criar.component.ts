@@ -46,12 +46,10 @@ export class AcaoCriarComponent implements OnInit {
   }
 
   onSucessPost(response: any) {
-    //console.log('Usuário incluído com sucesso', response);
     alert('Ação incluída com sucesso');
   }
 
   onErrorPost(error: any) {
-    //console.log('Erro ao incluir usuário', error);
     alert('Erro ao incluir ação: \n\n' + error);
   }
 

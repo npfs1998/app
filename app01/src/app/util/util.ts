@@ -1,5 +1,3 @@
-import { RepositionScrollStrategy } from "@angular/cdk/overlay";
-
 var perfil: string = '';
 var logado: boolean = false;
 var usuario: number = 0;

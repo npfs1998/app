@@ -14,21 +14,12 @@ export class UsuarioItemComponent implements OnInit {
   Id: number = 0;
   usuario! : Usuario;
   perfis: Perfil[] = [];
-  temPerfilManterUsuario: boolean = true;// util.perfilCriarUsuario();
+  temPerfilManterUsuario: boolean = true;
   registroAlterado: boolean = false;
   usuarioAtivo: boolean = false;
   habilitarBotoes: boolean = false;
   habilitarAtivar: boolean = false;
-/*
-<ng-select
-  [items]="cars"
-  bindLabel="name"
-  placeholder="Select Category"
-  appendTo="body"
-  [multiple]="true"
-  [(ngModel)]="selected">
-</ng-select>
-  */
+
 
   constructor(private usuarioServico: UsuarioServico,
               private activatedRoute: ActivatedRoute) { 
@@ -49,15 +40,6 @@ export class UsuarioItemComponent implements OnInit {
 
   preencherPerfis() {
     this.getPerfis();
-    /*
-    this.perfis.push(
-      { id: 0, descricao: "Administrador", auxiliar: false},
-      { id: 1, descricao: "Criar/Manter Usuário", auxiliar: false },
-      { id: 2, descricao: "Visualizar Usuário", auxiliar: false },
-      { id: 3, descricao: "Criar/Manter Ação", auxiliar: false },
-      { id: 4, descricao: "Visualizar Ação", auxiliar: false },
-      { id: 5, descricao: "Cancelar/Reabrir Ação", auxiliar: false } );
-    */
   }
 
   alteracao() {
@@ -70,7 +52,6 @@ export class UsuarioItemComponent implements OnInit {
    (document.getElementById('inputnome') as HTMLInputElement).value = this.usuario.nome;
     this.registroAlterado = false;
     this.habilitacoes();
-    //location.reload();
   }
 
   varrerPerfil() {
@@ -175,7 +156,6 @@ export class UsuarioItemComponent implements OnInit {
      this.putDados(_usuario);
     this.usuario = _usuario;
     this.habilitacoes();
-    //location.reload();
   }
 
   verificarPerfil() {
@@ -205,12 +185,10 @@ export class UsuarioItemComponent implements OnInit {
   }
 
   onSucessPut(response: any) {
-    //console.log('Usuário atualizado com sucesso', response);
     alert('Usuário atualizado com sucesso');
   }
 
   onErrorPut(error: any) {
-    //console.log('Erro ao atualizar usuário', error);
     alert('Erro ao alterar usuário: \n\n' +  error);
   }
   

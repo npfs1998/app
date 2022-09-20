@@ -20,38 +20,16 @@
     <span>Usuário</span>
     <span class="example-spacer"></span>
 
-    <!--button routerLink="/home/compartilhado/log" [queryParams]="{id:usuario.id,alvo:'USUARIO'}" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button-->
     <button [routerLink]="['/home/usuario']" mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
       <mat-icon>home</mat-icon>
     </button>
 
 </mat-toolbar> 
 
-<!--table class="table table-striped">
-    <thead>
-        <th>Registro</th>
-        <th>Matrícula</th>
-        <th>Nome</th>
-        <th>Situacao</th>
-        <th class="item">Perfil</th>
-    </thead>
-    <tbody>
-      <tr>
-            <td>{{ usuario!.id }}</td>
-            <td>{{ usuario.matricula }}</td>
-            <td>{{ usuario.nome }}</td>
-            <td>{{ usuario.situacao | usuarioSituacao }}</td>
-            <td class="item">{{ usuario.perfil | usuarioPerfil }}</td>
-        </tr>
-    </tbody>
-</table-->
-
 <div class="card shadow-sm">
 
   <div class="card-body">
-    <tr> <!-- *ngFor='let usuario of usuarios'-->
+    <tr>
     <div class="container">
       <p class="bold">Registro: {{ usuario.id }}</p>
       <p class="bold">Matrícula:</p> 
@@ -64,37 +42,15 @@
       <p class="card-text bold">{{ usuario.situacao | usuarioSituacao }}</p>
 
       <p class="bold">Perfil:</p>
-      <!--p class="card-text bold">{{ usuario.perfil | usuarioPerfil}}</p-->
 
       <select id="selPerfil" title="selPerfil" name="selPerfil" type="combobox" size="8" class="item-md mouse-over" multiple (change)="alteracao()">
         <option name="selPerfilUsuario" *ngFor='let perfil of perfis' [value]="perfil.id" [selected]="perfil.auxiliar">{{perfil.descricao}}</option>
       </select>
 
-      <!--div id="perfisUsuario" class="d-flex justify-content-between align-items-center">
-        <tr *ngFor='let perfil of perfis'>
-          <input type="checkbox" class="checkbox" *ngIf="perfil.auxiliar; else elseNoChecked" checked id="chk{{perfil.id}}">
-          <ng-template #elseNoChecked>
-            <input type="checkbox" class="checkbox" id="chk{{perfil.id}}">  
-          </ng-template>
-          <label class="margem-5 nowrap">{{ perfil.id + ':' + perfil.descricao }}</label>
-        </tr>
-      </div-->
-
       </div>
     </tr>
     <br><br>
-    <!--div class="d-flex justify-content-between align-items-center">
-      <div>
-        <button (click)="salvar()" class="btn bold bg-lightblue">Salvar</button>
-        <button [routerLink]="['/home/usuario']" class="btn bold bg-silver">Cancelar</button>
 
-        <button class="btn bold bg-yellow">Perfil</button>
-        <button class="btn bold bg-orange">Bloquear</button>
-        <button class="btn bold bg-red">Baixar</button>
-        <button class="btn bold bg-greenyellow">Ativar</button>
-        <button class="btn bold bg-green">Resetar senha</button>
-      </div>
-    </div-->
   </div>
 </div>
 

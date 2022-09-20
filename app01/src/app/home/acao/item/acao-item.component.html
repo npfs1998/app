@@ -45,8 +45,6 @@
     <div class="card-body">
       <tr>
       <div class="container">
-        <!--p class="bold">Registro: {{ acao.id }}</p>
-        <p class="bold">Data: {{ acao.data | date: 'dd/MM/yyyy HH:mm:ss' }}  Usuario: {{acao.matricula + ' - ' + acao.nome}}</p-->
         <p class="bold">Descrição:</p> 
         <textarea id="inputdescricao" [disabled]="!habilitarBotoes" class="uppercase noresize" cols="100%" rows="4" maxlength="200" [value]= "acao!.descricao" (change)="alteracao()"></textarea>
 
@@ -55,9 +53,6 @@
         <textarea id="inputobservacao" [disabled]="!habilitarBotoes" class="noresize" cols="100%" rows="8" maxlength="500" [value]= "acao!.observacao" (change)="alteracao()"></textarea>
 
         <br><br>
-        <!--p class="bold">Situação:</p>
-        <p class="card-text bold">{{ acao.situacao | acaoSituacao }}</p-->
-  
       </div>
       </tr>
       <br><br>

@@ -3,8 +3,6 @@ import { util } from '../util/util';
 import { UsuarioServico } from './compartilhado/dado/usuario.servico';
 import { take } from 'rxjs/operators';
 import { Usuario, Valida } from './compartilhado/dado/dado';
-import { VIRTUAL_SCROLL_STRATEGY } from '@angular/cdk/scrolling';
-//import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -37,11 +35,7 @@ export class HomeComponent implements OnInit {
       (document.getElementById('habilitarLogoff') as HTMLButtonElement).style.visibility = 'hidden';
       (document.getElementById('usuario') as HTMLButtonElement).style.visibility = 'hidden';
       (document.getElementById('acao') as HTMLButtonElement).style.visibility = 'hidden';
-      //if (this.verificaCaps()) this.mensagem = 'Caps Lock ativado!';
     }
-
-    //(document.getElementById('habilitarLogin') as HTMLButtonElement).disabled = habilitar;
-    
     if (!habilitar)
     {
       var dados: string = util.dadosUsuario();
@@ -74,7 +68,6 @@ export class HomeComponent implements OnInit {
       return;
     }
     var senhaok: boolean = true;
-    //var _sh = this.usuario.senha;
 
     if (this.usuario) {
       this.validaUsuario(this.usuario.id, util.valida(_senha));
@@ -153,11 +146,5 @@ export class HomeComponent implements OnInit {
   onError1(error: any) {
     console.log('Erro ao logar usuário  - 2');
   }
-
-  verificaCaps(): boolean {
-    var key = 'a';
-    (document.getElementById('key') as HTMLInputElement).value = 'a';
-    var _key = (document.getElementById('key') as HTMLInputElement).value;
-    return key != _key;
-  };
+  
 }

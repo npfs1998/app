@@ -22,6 +22,11 @@ import { AcaoItemComponent } from './home/acao/item/acao-item.component';
 import { AcaoListaComponent } from './home/acao/acao-lista.component';
 import { AcaoCriarComponent } from './home/acao/criar/acao-criar.component';
 
+import { MenuComponent } from './home/menu/menu.component';
+import { HeaderComponent } from './home/compartilhado/header/header.component';
+import { NavComponent } from './home/compartilhado/nav/nav.component';
+import { FooterComponent } from './home/compartilhado/footer/footer.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +37,11 @@ import { AcaoCriarComponent } from './home/acao/criar/acao-criar.component';
     LogComponent,
     AcaoItemComponent,
     AcaoListaComponent,
-    AcaoCriarComponent
+    AcaoCriarComponent,
+    MenuComponent,
+    HeaderComponent,
+    NavComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ import { util } from 'src/app/util/util';
 export class AcaoItemComponent implements OnInit {
   Id: number = 0;
   acao! : Acao;
-  temPerfilManterUsuario: boolean = true;// util.perfilCriarUsuario();
+  temPerfilManterUsuario: boolean = true;
   registroAlterado: boolean = false;
   acaoAtivo: boolean = false;
   habilitarBotoes: boolean = false;
@@ -51,7 +51,6 @@ export class AcaoItemComponent implements OnInit {
 
     this.registroAlterado = false;
     this.habilitacoes();
-    //location.reload();
   }
   
   getDados() {
@@ -114,7 +113,6 @@ export class AcaoItemComponent implements OnInit {
     this.putDados(_acao);
     this.acao = _acao;
     this.habilitacoes();
-    //location.reload();
   }
 
   putDados(_acao: Acao) {
@@ -129,12 +127,10 @@ export class AcaoItemComponent implements OnInit {
   }
 
   onSucessPut(response: any) {
-    //console.log('Usuário atualizado com sucesso', response);
     alert('Ação atualizada com sucesso');
   }
 
   onErrorPut(error: any) {
-    //console.log('Erro ao atualizar usuário', error);
     alert('Erro ao alterar ação: \n\n' +  error);
   }
 

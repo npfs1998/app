@@ -63,12 +63,10 @@ export class UsuarioCriarComponent implements OnInit {
   }
 
   onSucessPost(response: any) {
-    //console.log('Usuário incluído com sucesso', response);
     alert('Usuário incluído com sucesso');
   }
 
   onErrorPost(error: any) {
-    //console.log('Erro ao incluir usuário', error);
     alert('Erro ao incluir usuário: \n\n' + error);
   }
 
