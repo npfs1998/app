@@ -7,5 +7,5 @@ RUN npm run build --prod
 
 FROM nginx:alpine
 VOLUME /var/cache/nginx
-COPY --from=angular app/dist/neo-teste /usr/share/nginx/html
+COPY --from=angular app/dist/app01 /usr/share/nginx/html
 COPY ./config/nginx.conf /etc/ngix/conf.d/default.conf
